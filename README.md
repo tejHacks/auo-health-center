@@ -13,10 +13,10 @@ The **Health Center Management System** is a comprehensive web-based application
 - **Responsive Design**: Accessible on both desktop and mobile devices for ease of use.
 
 ## Technologies Used
-- **Frontend**: HTML, CSS, JavaScript (or any framework you're using, e.g., React, Vue)
-- **Backend**: PHP (or your preferred backend language)
-- **Database**: MySQL (or any database system you are using)
-- **Libraries/Frameworks**: Bootstrap (for responsive design), jQuery (if applicable)
+- **Frontend**: HTML, CSS, JavaScript and Ajax
+- **Backend**: PHP 
+- **Database**: MySQL and MariaDB
+- **Libraries/Frameworks**: Bootstrap (for responsive design), jQuery,Font awesome,boxicons,bootstrap icons too
 
 ## Getting Started
 To set up the Health Center Management System locally, follow these steps:
