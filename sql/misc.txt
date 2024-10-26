@@ -1,0 +1,42 @@
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $matric_number = htmlspecialchars($_POST["matric"]);
+    $user_password = htmlspecialchars($_POST["password"]);
+    
+    // Validate matric number
+    if (!validateMatric($matric_number)) {
+        echo "<div class='alert alert-danger mt-3' role='alert'>Invalid matric number format (use the format AU10AN1234)
+        <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+        </div>";
+        exit();
+    }
+
+    // Retrieve hashed password from the database
+    $stmt = $conn->prepare("SELECT `Password` FROM Student WHERE MatricNumber = ?");
+    $stmt->bind_param("s", $matric_number);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $stored_password = $row["Password"];
+
+        // Verify the password
+        if (password_verify($user_password, $stored_password)) {
+            $_SESSION["matric"] = $matric_number;
+            header("Location: user-dashboard/dashboard-home.php");
+            exit();
+        } else {
+            // Debugging: Uncomment to see what's being compared
+            // echo "Entered: " . $user_password . " Hashed: " . $stored_password;
+            echo "<div class='alert alert-danger mt-3' role='alert'>Incorrect Password, please try again.
+            <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+            </div>";
+        }
+    } else {
+        echo "<div class='alert alert-danger mt-3' role='alert'>Your matric number was not found.
+        <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+        </div>";
+    }
+
+    $stmt->close();
+}

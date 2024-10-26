@@ -1,0 +1,50 @@
+<?php
+// start the session
+session_start();
+
+// Database connection details
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "health-center";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+if (isset($_POST["submit"])) {
+    // Sanitize and assign values to the variables
+    $fullname = htmlspecialchars($_POST['Fullname']);
+    $email = htmlspecialchars($_POST['Email']);
+    $phone = htmlspecialchars($_POST['mobileNumber']);
+    $matric = htmlspecialchars($_POST['matricNumber']);
+    $gender = htmlspecialchars($_POST['gender']);
+    $level = htmlspecialchars($_POST['level']);
+    $course = htmlspecialchars($_POST['course']);
+    $user_password = htmlspecialchars($_POST["password"]); // Corrected variable name
+
+    // Hash the user password for security 
+    $Password = password_hash($user_password, PASSWORD_DEFAULT); // Use $user_password here
+
+    // Prepare and execute the parameterized query
+    $stmt = $conn->prepare("INSERT INTO `Student` (`Fullname`, Email, Phonenumber, MatricNumber, Gender, `Level`, Course, `Password`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("ssssssss", $fullname, $email, $phone, $matric, $gender, $level, $course, $Password);
+
+    if ($stmt->execute()) {
+        $_SESSION['matric'] = $matric;
+        header("location:user-dashboard/dashboard-home.php");
+        exit();
+    } else {
+        // Handle errors and log them or display any error messages
+        echo "Error registering you: " . $stmt->error;
+    }
+
+    $stmt->close();
+}
+
+$conn->close();
+?>

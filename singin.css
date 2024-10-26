@@ -1,0 +1,68 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  /* background-color: #333131; */
+  background-color: #500291;
+}
+h2{
+color: white;
+text-align: center;
+font-family: "Poppins";
+font-weight: 700;
+}
+.form-signin {
+    background-color: rgb(250, 250, 250);
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+  border-radius: 3px;
+  font-family: monospace;
+}
+#linkHover:hover{
+  cursor: pointer !important ;
+  background-color: rgb(80, 2, 145) !important;
+}
+#btnSubmit:hover{
+  background-color: rgb(80, 2, 157) !important;
+  color: #e8e8e8 !important;
+  border: none !important;
+  /* transform: skew(0deg, 5deg); */
+  /* box-shadow: 1px 2px 4px purple; */
+}
+.form-signin .checkbox {
+  font-weight: 400;
+}
+
+.form-signin .form-floating:focus-within {
+  z-index: 2;
+}
+.form-signin input{
+    padding: 10px;
+    margin: 5px;
+    /* height: 40px; */
+}
+
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+button{
+  border:2px solid purple;
+  border-radius: 1px;
+}

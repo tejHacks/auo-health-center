@@ -1,0 +1,46 @@
+
+if(isset($_POST['login'])) {
+    $matric = $_POST['Matric'];
+    $user_password = $_POST['password'];
+
+    // Validate input
+    if(empty($matric) || empty($user_password)) {
+        echo "<script>alert('Please enter both matric number and password');</script>";
+    } else {
+        // Prepare SQL statement to avoid SQL injection
+        $stmt = $conn->prepare("SELECT `MatricNumber`, `Password`, `FullName` FROM `Student` WHERE `MatricNumber` = ?");
+        if ($stmt === false) {
+            die("Failed to prepare SQL statement: " . $conn->error);
+        }
+
+        $stmt->bind_param("s", $matric);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if($result->num_rows === 0) {
+            echo "<script>alert('Matric number not found');</script>";
+        } else {
+            $row = $result->fetch_assoc();
+            $hashed_password = $row['Password'];
+
+            // Verify password using password_verify
+            if(password_verify($user_password, $hashed_password)) {
+                // Password is correct, set session variables
+                $_SESSION['matric'] = $matric;
+                $_SESSION['fullname'] = $row['FullName'];
+                $_SESSION['password'] = $hashed_password;
+
+                // Redirect to dashboard
+                header("Location: user-dashboard/dashboard-home.php");
+
+                
+                exit();
+            } else {
+                // Incorrect password
+                echo "<script>alert('Incorrect password');</script>";
+            }
+        }
+        $stmt->close();
+    }
+}
+?>

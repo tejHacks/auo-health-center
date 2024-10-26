@@ -1,0 +1,33 @@
+    $sql = "SELECT * FROM `Student` WHERE `MatricNumber` = '$matric' AND `Password` = '$password'  ";
+  $result = mysqli_query($conn, $sql); 
+  if (mysqli_num_rows($result) > 0) {
+    // output data of each row
+    while($row = mysqli_fetch_assoc($result)) {
+        $fullName = $row["Fullname"];
+        $email = $row["Email"];
+        $matricNumber = $row["MatricNumber"];
+        $mobile = $row["Phonenumber"];
+        $id = $row["Student_ID"];
+        $level = $row["Level"];
+        $course = $row["Course"];
+        $gender = $row["Gender"];
+    }
+    
+
+
+   $sql = "SELECT * FROM `Student` WHERE `MatricNumber` = '$matric' AND `Password` = '$password'  ";
+  $result = mysqli_query($conn, $sql); 
+  if (mysqli_num_rows($result) > 0) {
+    // output data of each row
+    while($row = mysqli_fetch_assoc($result)) {
+        $fullName = $row["Fullname"];
+        $email = $row["Email"];
+        $matricNumber = $row["MatricNumber"];
+        $mobile = $row["Phonenumber"];
+        $id = $row["Student_ID"];
+        $level = $row["Level"];
+        $course = $row["Course"];
+        $gender = $row["Gender"];
+    }
+    
+}

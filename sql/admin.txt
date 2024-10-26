@@ -1,0 +1,61 @@
+<?php
+session_start();
+include('config.php');
+include('checklogin.php');
+
+// Fetch contact lines from the database
+$query = "SELECT * FROM ContactLines";
+$result = mysqli_query($conn, $query);
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Update contact lines logic
+    foreach ($_POST['contact_numbers'] as $id => $number) {
+        $number = mysqli_real_escape_string($conn, $number);
+        $updateQuery = "UPDATE ContactLines SET contact_number='$number' WHERE id='$id'";
+        mysqli_query($conn, $updateQuery);
+    }
+    echo '<div class="alert alert-success" role="alert">Contact numbers updated successfully!</div>';
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Site Metas and CSS links -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Lines</title>
+    <link rel="stylesheet" href="../assets/bootstrap-5.0.2-dist/css/bootstrap.min.css">
+</head>
+<body>
+
+<?php include("header.php"); ?>
+
+<div class="container my-4">
+    <h2>Contact Lines for Achievers Health Center</h2>
+    <form method="POST">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Contact Type</th>
+                    <th>Contact Number</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php while ($row = mysqli_fetch_assoc($result)): ?>
+                    <tr>
+                        <td><?php echo htmlspecialchars($row['contact_type']); ?></td>
+                        <td>
+                            <input type="text" name="contact_numbers[<?php echo $row['id']; ?>]" class="form-control" value="<?php echo htmlspecialchars($row['contact_number']); ?>" required>
+                        </td>
+                    </tr>
+                <?php endwhile; ?>
+            </tbody>
+        </table>
+        <button type="submit" class="btn btn-primary">Update Contact Lines</button>
+    </form>
+</div>
+
+<script src="../assets/bootstrap-5.0.2-dist/js/bootstrap.bundle.js"></script>
+</body>
+</html>

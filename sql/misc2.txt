@@ -1,0 +1,67 @@
+<?php
+session_start();
+// Include your database connection
+include('configs/config.php'); 
+
+// 
+function validateMatric($matric_number){
+    return preg_match("/^AU[0-9]{2}[A-Z]{2}[0-9]{4}/",$matric_number);
+}
+
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+    $matric_number = htmlspecialchars($_POST["matric"]);
+    
+    $user_password = htmlspecialchars($_POST["password"]);
+
+    // $Password = password_hash($user_password, PASSWORD_DEFAULT);
+
+    // Validate matric number
+    if(!validateMatric($matric_number)){
+        // echo "Invalid matric number format";
+        echo "<div class='alert alert-danger mt-3' role='alert'>Invalid matric number format(use the format AU10AN1234)
+        <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></buttton>
+        </div>";
+
+        exit();
+    }
+
+
+// Retrieve hashed password from the database and check on entered password from the user
+$stmt = $conn->prepare("SELECT `Password` FROM Student WHERE MatricNumber  = ?");
+$stmt->bind_param("s",$matric_number);
+$stmt->execute();
+$result = $stmt->get_result();
+// verify password after getting the data 
+if($result->num_rows > 0){
+    $row = $result->fetch_assoc();
+    $stored_password = $row["Password"];
+    // verify the password now here
+
+    if(password_verify($user_password,$stored_password)){
+        $_SESSION["matric"] = $matric_number;
+        $_SESSION["password"] = $user_password;
+        // Successful Login,redirect to the dashboard and set session data too for the user consistently across the pages and stuff
+        header("Location: user-dashboard/dashboard-home.php");
+        exit();
+    } else {
+        // echo "Invalid Password.";
+        echo "<div class='alert alert-danger mt-3' role='alert'>Incorrect Password,please try again. 
+        <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></buttton>
+        </div>";
+
+    }
+
+}else{
+// echo "Matric number not found.";
+echo "<div class='alert alert-danger mt-3' role='alert'>Your matric number was not found.
+        <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'> </buttton>
+        </div>";
+
+}
+$stmt->close();
+
+
+}
+
+
+?>
