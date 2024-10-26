@@ -80,11 +80,11 @@
             <i class="fa fa-medkit me-2"></i>Health Center Admin
         </div>
         <div class="list-group list-group-flush my-3">
-            <a href="dashboard.php" class="list-group-item list-group-item-action bg-transparent text-white">
+            <a href="dashboard.php" class="list-group-item list-group-item-action bg-primary text-light">
                 <i class="fa fa-dashboard me-2"></i>Dashboard
             </a>
             <div class="dropdown">
-                <a class="list-group-item list-group-item-action bg-transparent text-white dropdown-toggle" id="managePatientsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="list-group-item list-group-item-action bg-primary text-light dropdown-toggle" id="managePatientsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                     <i class="fa fa-users me-2"></i>Manage Patients <span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu bg-dark" aria-labelledby="managePatientsDropdown">
@@ -93,7 +93,7 @@
                 </ul>
             </div>
             <div class="dropdown">
-                <a class="list-group-item list-group-item-action bg-transparent text-white dropdown-toggle" id="staffManagementDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="list-group-item list-group-item-action bg-primary text-light dropdown-toggle" id="staffManagementDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                     <i class="fa fa-user-md me-2"></i>Staff Management <span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu bg-dark" aria-labelledby="staffManagementDropdown">
@@ -102,7 +102,7 @@
                 </ul>
             </div>
             <div class="dropdown">
-                <a class="list-group-item list-group-item-action bg-transparent text-white dropdown-toggle" id="appointmentsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="list-group-item list-group-item-action bg-primary text-light dropdown-toggle" id="appointmentsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                     <i class="fa fa-calendar-check-o me-2"></i>Appointments <span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu bg-dark" aria-labelledby="appointmentsDropdown">
@@ -111,7 +111,7 @@
                 </ul>
             </div>
             <div class="dropdown">
-                <a class="list-group-item list-group-item-action bg-transparent text-white dropdown-toggle" id="contactManagementDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="list-group-item list-group-item-action bg-primary text-light dropdown-toggle" id="contactManagementDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                     <i class="fa fa-phone me-2"></i>Contact Management <span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu bg-dark" aria-labelledby="contactManagementDropdown">
@@ -120,7 +120,7 @@
                 </ul>
             </div>
             <div class="dropdown">
-                <a class="list-group-item list-group-item-action bg-transparent text-white dropdown-toggle" id="newsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="list-group-item list-group-item-action bg-primary text-light dropdown-toggle" id="newsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                     <i class="fa fa-newspaper-o me-2"></i>News <span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu bg-dark" aria-labelledby="newsDropdown">
@@ -128,7 +128,7 @@
                 </ul>
             </div>
             <div class="dropdown">
-                <a class="list-group-item list-group-item-action bg-transparent text-white dropdown-toggle" id="adminsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="list-group-item list-group-item-action bg-primary text-light dropdown-toggle" id="adminsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                     <i class="fa fa-user-secret me-2"></i>Admins <span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu bg-dark" aria-labelledby="adminsDropdown">
@@ -137,26 +137,22 @@
                 </ul>
             </div>
             <div class="dropdown">
-                <a class="list-group-item list-group-item-action bg-transparent text-white dropdown-toggle" id="studentRecordsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="list-group-item list-group-item-action bg-primary text-light dropdown-toggle" id="studentRecordsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                     <i class="fa fa-graduation-cap me-2"></i>Student Records <span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu bg-dark" aria-labelledby="studentRecordsDropdown">
                     <li><a class="dropdown-item" href="student_records.php">Manage Student Records</a></li>
                 </ul>
             </div>
-            <a href="logout.php" class="list-group-item list-group-item-action bg-transparent text-danger">
+            <a href="logout.php" class="list-group-item list-group-item-action bg-primary text-lightr">
                 <i class="fa fa-sign-out me-2"></i>Logout
             </a>
-            <form class="d-flex mt-3" action="search.php" method="GET">
-                <input class="form-control me-2" type="search" placeholder="Search..." aria-label="Search" name="query">
-                <button class="btn btn-outline-light" type="submit">Search</button>
-            </form>
         </div>
     </div>
     <!-- /#sidebar-wrapper -->
 
 </div>
 
-
+<script src="../assets/bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
