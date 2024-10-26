@@ -51,6 +51,20 @@
             margin-left: auto;
         }
 
+        /* Dropdown Menu Styles */
+        .dropdown-menu {
+            background-color: #343a40; /* Dark background for dropdown */
+        }
+
+        .dropdown-item {
+            color: #ffffff; /* White text for dropdown items */
+        }
+
+        .dropdown-item:hover {
+            background-color: #495057; /* Darker background on hover */
+            color: #ffffff; /* Keep text white on hover */
+        }
+
         /* Page content beside sidebar */
         #page-content-wrapper {
             margin-left: 250px;
@@ -87,7 +101,7 @@
                 <a class="list-group-item list-group-item-action bg-primary text-light dropdown-toggle" id="managePatientsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                     <i class="fa fa-users me-2"></i>Manage Patients <span class="caret"></span>
                 </a>
-                <ul class="dropdown-menu bg-dark" aria-labelledby="managePatientsDropdown">
+                <ul class="dropdown-menu" aria-labelledby="managePatientsDropdown">
                     <li><a class="dropdown-item" href="patient_records.php">Manage Patients</a></li>
                     <li><a class="dropdown-item" href="register_patient.php">Register New Patient</a></li>
                 </ul>
@@ -96,7 +110,7 @@
                 <a class="list-group-item list-group-item-action bg-primary text-light dropdown-toggle" id="staffManagementDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                     <i class="fa fa-user-md me-2"></i>Staff Management <span class="caret"></span>
                 </a>
-                <ul class="dropdown-menu bg-dark" aria-labelledby="staffManagementDropdown">
+                <ul class="dropdown-menu" aria-labelledby="staffManagementDropdown">
                     <li><a class="dropdown-item" href="staff_management.php">Manage Staff</a></li>
                     <li><a class="dropdown-item" href="register_staff.php">Register New Staff</a></li>
                 </ul>
@@ -105,7 +119,7 @@
                 <a class="list-group-item list-group-item-action bg-primary text-light dropdown-toggle" id="appointmentsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                     <i class="fa fa-calendar-check-o me-2"></i>Appointments <span class="caret"></span>
                 </a>
-                <ul class="dropdown-menu bg-dark" aria-labelledby="appointmentsDropdown">
+                <ul class="dropdown-menu" aria-labelledby="appointmentsDropdown">
                     <li><a class="dropdown-item" href="appointments.php">Manage Appointments</a></li>
                     <li><a class="dropdown-item" href="create_appointment.php">Create New Appointment</a></li>
                 </ul>
@@ -114,7 +128,7 @@
                 <a class="list-group-item list-group-item-action bg-primary text-light dropdown-toggle" id="contactManagementDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                     <i class="fa fa-phone me-2"></i>Contact Management <span class="caret"></span>
                 </a>
-                <ul class="dropdown-menu bg-dark" aria-labelledby="contactManagementDropdown">
+                <ul class="dropdown-menu" aria-labelledby="contactManagementDropdown">
                     <li><a class="dropdown-item" href="contact_lines.php">Manage Contact List</a></li>
                     <li><a class="dropdown-item" href="register_contact.php">Register New Contact</a></li>
                 </ul>
@@ -123,7 +137,7 @@
                 <a class="list-group-item list-group-item-action bg-primary text-light dropdown-toggle" id="newsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                     <i class="fa fa-newspaper-o me-2"></i>News <span class="caret"></span>
                 </a>
-                <ul class="dropdown-menu bg-dark" aria-labelledby="newsDropdown">
+                <ul class="dropdown-menu" aria-labelledby="newsDropdown">
                     <li><a class="dropdown-item" href="add_news.php">Add News</a></li>
                 </ul>
             </div>
@@ -131,7 +145,7 @@
                 <a class="list-group-item list-group-item-action bg-primary text-light dropdown-toggle" id="adminsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                     <i class="fa fa-user-secret me-2"></i>Admins <span class="caret"></span>
                 </a>
-                <ul class="dropdown-menu bg-dark" aria-labelledby="adminsDropdown">
+                <ul class="dropdown-menu" aria-labelledby="adminsDropdown">
                     <li><a class="dropdown-item" href="admin_management.php">Manage Admins</a></li>
                     <li><a class="dropdown-item" href="add_admin.php">Add New Admin</a></li>
                 </ul>
@@ -140,11 +154,11 @@
                 <a class="list-group-item list-group-item-action bg-primary text-light dropdown-toggle" id="studentRecordsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                     <i class="fa fa-graduation-cap me-2"></i>Student Records <span class="caret"></span>
                 </a>
-                <ul class="dropdown-menu bg-dark" aria-labelledby="studentRecordsDropdown">
+                <ul class="dropdown-menu" aria-labelledby="studentRecordsDropdown">
                     <li><a class="dropdown-item" href="student_records.php">Manage Student Records</a></li>
                 </ul>
             </div>
-            <a href="logout.php" class="list-group-item list-group-item-action bg-primary text-lightr">
+            <a href="logout.php" class="list-group-item list-group-item-action bg-primary text-light">
                 <i class="fa fa-sign-out me-2"></i>Logout
             </a>
         </div>

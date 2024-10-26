@@ -85,9 +85,9 @@ $recent_patients = mysqli_query($conn, $recent_patients_query);
 
 
 <div id="page-content-wrapper" class="flex-grow-1">
-        <div class="container-fluid">
+        <div class="container-fluid ">
             <h1 class="mt-4">Dashboard</h1>
-            <div class="row">
+            <div class="row text-uppercase">
                 <div class="col-md-3 mb-4">
                     <div class="card bg-primary text-white">
                         <div class="card-body">
